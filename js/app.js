@@ -11,6 +11,7 @@ var Enemy = function() {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
+
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -27,20 +28,31 @@ Enemy.prototype.render = function() {
 };
 
 Player.prototype.render = function() {
-    ctx //does this need the .drawImage() that enemy prototype has?- maybe not this.x/y
+    ctx
 } 
+/*function checkCollision() {
+    if () //pos player 1 == pos player 2
+    {
 
-var player function(){   // let xpos=
-    // let ypos=
-    //add image- Sprite
-    //update: function();
-        // checkcollison();
-    //render: function();
-        //image should be on x/y position
-    //handleInput: function();
-        //recieve user input
-    //if checkCollision=true reset hero
+    }
+    //else keep going- no need to write code
+}*/
+ 
+ class Hero {  
+    constructor() {
+        this.x = 0;
+        this.y = 0;
+        this.sprite = 'images/char-princess-girl.png';}
+
+   /* update: function();
+        checkCollison();*/
+   render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+   // handleInput: function();
+       // recieve user input
 }
+ 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -48,10 +60,10 @@ var player function(){   // let xpos=
 var allEnemies = [];
 var player = player; //object
 
-// Now instantiate your objects.
+// Now instantiate your objects. (isn't that what the above lines are??)
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
+const player = new Hero();
 
 
 // This listens for key presses and sends the keys to your
