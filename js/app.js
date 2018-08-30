@@ -9,6 +9,9 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
 };
 
+var Player = function() {
+    this.sprite = 'image/char-princess-girl';
+}
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 
@@ -27,9 +30,12 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+let allEnemies = [new Enemy()];
+
 Player.prototype.render = function() {
     ctx
 } 
+
 /*function checkCollision() {
     if () //pos player 1 == pos player 2
     {
@@ -37,33 +43,29 @@ Player.prototype.render = function() {
     }
     //else keep going- no need to write code
 }*/
- 
- class Hero {  
+
+ class Hero {  // 10.14 may help
     constructor() {
         this.x = 0;
         this.y = 0;
         this.sprite = 'images/char-princess-girl.png';}
-
    /* update: function();
         checkCollison();*/
-   render() {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
-   // handleInput: function();
+    render(){ //why can't you just call on player.prototype.render??
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);}
+  // let userInput = //currently
+  // handleInput: function();
        // recieve user input
-}
- 
+ };
+  const player = new Hero();
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var allEnemies = [];
-var player = player; //object
-
 // Now instantiate your objects. (isn't that what the above lines are??)
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const player = new Hero();
+
 
 
 // This listens for key presses and sends the keys to your
