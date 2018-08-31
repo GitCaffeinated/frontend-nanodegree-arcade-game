@@ -52,24 +52,31 @@ Player.prototype.render = function() {
    /* update: function();
         checkCollison();*/
     render(){ //why can't you just call on player.prototype.render??
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);}
-  // let userInput = //currently
-  // handleInput: function();
-       // recieve user input
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+    handleInput(input) { //take keypress and move sprite
+        if (input == 'left'){
+            this.x -=20;
+        }
+        else if (input == 'up'){
+            this.y -= 20;
+        }
+        else if (input == 'right'){
+            this.x += 20; 
+        }
+        else if (input == 'down'){
+            this.y += 20;
+        }
+        };
  };
   const player = new Hero();
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// This class requires an update()
 
-// Now instantiate your objects. (isn't that what the above lines are??)
+// Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// This listens for key presses sends keys to Player.handleInput() method
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
