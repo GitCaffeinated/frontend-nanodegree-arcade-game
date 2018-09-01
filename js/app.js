@@ -1,3 +1,6 @@
+let colomn = 101;
+let row = 83;
+
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -46,8 +49,11 @@ Player.prototype.render = function() {
 
  class Hero {  // 10.14 may help
     constructor() {
-        this.x = 0;
-        this.y = 0;
+
+        this.x = colomn * 2;
+        this.y = (row * 5) - 20;
+        this.horizontal = 101;
+        this.vertical = 83;
         this.sprite = 'images/char-princess-girl.png';}
    /* update: function();
         checkCollison();*/
@@ -55,17 +61,17 @@ Player.prototype.render = function() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
     handleInput(input) { //take keypress and move sprite
-        if (input == 'left'){
-            this.x -=20;
+        if (this.x > 0 && input == 'left'){
+            this.x -= this.horizontal;
         }
-        else if (input == 'up'){
-            this.y -= 20;
+        else if (this.y > 0 && input == 'up'){
+            this.y -= this.vertical;
         }
-        else if (input == 'right'){
-            this.x += 20; 
+        else if (this.x < colomn * 4  && input == 'right'){
+            this.x += this.horizontal; 
         }
-        else if (input == 'down'){
-            this.y += 20;
+        else if (this.y < row * 4 && input == 'down'){
+            this.y += this.vertical;
         }
         };
  };
