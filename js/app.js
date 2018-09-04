@@ -2,14 +2,15 @@ let colomn = 101;
 let row = 83;
 
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-        //xpos
-        //ypos
+        
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.x = x;
+    this.y = y;
 };
 
 var Player = function() {
@@ -19,13 +20,19 @@ var Player = function() {
 // Parameter: dt, a time delta between ticks
 
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
+    // You should multiply any movement by the dt `parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     //automated movement
-        //move forward if on board
-        //if not on board reset pos to start
-    //push enemy into allEnemies array- maybe earlier or an outside thing- one by one (for loop)- this may create multiple of the same enemy to be in array at same time
+    /*if (this.x >= 0){
+        setTimeout(function(){what happens here ;}
+            ,100 ) //add math.floor? feature
+   }
+            //move forward if on board
+    else if (this.x = colomn * 5) {
+
+    } */
+      //if not on board reset pos to start
 };
 
 // Draw the enemy on the screen, required method for game
@@ -33,7 +40,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-let allEnemies = [new Enemy()];
+
 
 Player.prototype.render = function() {
     ctx
@@ -76,8 +83,14 @@ Player.prototype.render = function() {
         };
  };
   const player = new Hero();
-// This class requires an update()
-
+  let enemy1 = new Enemy(0, (row * 1)- 20);
+  let enemy2 = new Enemy(0, (row * 2)- 20);
+  let enemy3 = new Enemy(0, (row * 3)- 20);
+  let allEnemies = [];
+  allEnemies.push(enemy1);
+  allEnemies.push(enemy2);
+  allEnemies.push(enemy3);
+ // This class requires an update()
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
