@@ -24,15 +24,13 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     //automated movement
-    /*if (this.x >= 0){
-        setTimeout(function(){what happens here ;}
-            ,100 ) //add math.floor? feature
-   }
-            //move forward if on board
-    else if (this.x = colomn * 5) {
+    if (this.x <= colomn * 5){
 
-    } */
-      //if not on board reset pos to start
+            this.x += Math.floor(Math.random() * 350) * dt
+   }
+    else {
+        this.x = 0;
+    } 
 };
 
 // Draw the enemy on the screen, required method for game
