@@ -2,7 +2,7 @@ let colomn = 101;
 let row = 83;
 
 // Enemies our player must avoid
-var Enemy = function(x, y) {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
         
@@ -11,6 +11,7 @@ var Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
+    this.speed = speed;
 };
 
 var Player = function() {
@@ -24,9 +25,9 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     //automated movement
-    if (this.x <= colomn * 5){
 
-            this.x += Math.floor(Math.random() * 350) * dt
+    if (this.x <= colomn * 5){
+            this.x += this.speed * dt;
    }
     else {
         this.x = 0;
@@ -45,16 +46,15 @@ Player.prototype.render = function() {
 } 
 
 /*function checkCollision() {
-    if () //pos player 1 == pos player 2
+    if (Hero.x == Enemy.x)
     {
-
+        console.log (collision);
     }
-    //else keep going- no need to write code
+
 }*/
 
  class Hero {  // 10.14 may help
     constructor() {
-
         this.x = colomn * 2;
         this.y = (row * 5) - 20;
         this.horizontal = 101;
@@ -81,9 +81,9 @@ Player.prototype.render = function() {
         };
  };
   const player = new Hero();
-  let enemy1 = new Enemy(0, (row * 1)- 20);
-  let enemy2 = new Enemy(0, (row * 2)- 20);
-  let enemy3 = new Enemy(0, (row * 3)- 20);
+  let enemy1 = new Enemy(0, (row * 1)- 20, Math.floor(Math.random() * 350));
+  let enemy2 = new Enemy(0, (row * 2)- 20, Math.floor(Math.random() * 350));
+  let enemy3 = new Enemy(0, (row * 3)- 20, Math.floor(Math.random() * 350));
   let allEnemies = [];
   allEnemies.push(enemy1);
   allEnemies.push(enemy2);
