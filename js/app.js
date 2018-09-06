@@ -45,14 +45,6 @@ Player.prototype.render = function() {
     ctx
 } 
 
-/*function checkCollision() {
-    if (Hero.x == Enemy.x)
-    {
-        console.log (collision);
-    }
-
-}*/
-
  class Hero {  // 10.14 may help
     constructor() {
         this.x = colomn * 2;
@@ -60,8 +52,10 @@ Player.prototype.render = function() {
         this.horizontal = 101;
         this.vertical = 83;
         this.sprite = 'images/char-princess-girl.png';}
-   /* update: function();
-        checkCollison();*/
+    update(checkCollision){ //not working
+        if (this.x === Enemy.x && this.y === Enemy.y){
+        console.log ("collision");
+    }}
     render(){ //why can't you just call on player.prototype.render??
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
@@ -81,9 +75,9 @@ Player.prototype.render = function() {
         };
  };
   const player = new Hero();
-  let enemy1 = new Enemy(0, (row * 1)- 20, Math.floor(Math.random() * 350));
-  let enemy2 = new Enemy(0, (row * 2)- 20, Math.floor(Math.random() * 350));
-  let enemy3 = new Enemy(0, (row * 3)- 20, Math.floor(Math.random() * 350));
+  let enemy1 = new Enemy(0, (row * 1)- 20, Math.floor(Math.random() * 350) +50);
+  let enemy2 = new Enemy(0, (row * 2)- 20, Math.floor(Math.random() * 350) +50);
+  let enemy3 = new Enemy(0, (row * 3)- 20, Math.floor(Math.random() * 350) +50);
   let allEnemies = [];
   allEnemies.push(enemy1);
   allEnemies.push(enemy2);
