@@ -52,10 +52,17 @@ Player.prototype.render = function() {
         this.horizontal = 101;
         this.vertical = 83;
         this.sprite = 'images/char-princess-girl.png';}
-    update(checkCollision){ //not working
-        if (this.x === Enemy.x && this.y === Enemy.y){
-        console.log ("collision");
-    }}
+    update(){ //not working
+        function checkCollisions(){
+                if (this.x === Enemy.x && this.y === Enemy.y){
+                console.log ("collision");
+            }
+               // else if (this.y = row * 1) {
+                 //   this.x = colomn * 2;
+                   // this.y = (row * 5) - 20;
+                //}
+            }
+    }
     render(){ //why can't you just call on player.prototype.render??
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
