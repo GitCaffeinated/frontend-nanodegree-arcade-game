@@ -12,6 +12,7 @@ var Enemy = function(x, y, speed) {
     this.x = x;
     this.y = y;
     this.speed = speed;
+    this.step = 50;
 };
 
 var Player = function() {
@@ -25,21 +26,20 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     //automated movement
-
     if (this.x <= colomn * 5){
             this.x += this.speed * dt;
    }
     else {
         this.x = 0;
     } 
+
+
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
-
 
 Player.prototype.render = function() {
     ctx
@@ -53,15 +53,19 @@ Player.prototype.render = function() {
         this.vertical = 83;
         this.sprite = 'images/char-princess-girl.png';}
     update(){ //not working
-        function checkCollisions(){
-                if (this.x === Enemy.x && this.y === Enemy.y){
-                console.log ("collision");
+              for (let enemy of allEnemies){
+                if (this.y ===enemy.y && (enemy.x + enemy.step) > this.x && enemy.x < this.x){
+                    this.x = colomn * 2;
+                    this.y = (row * 5) - 20;
+                }
+                //console.log ("collision");
+                 //this.x = colomn * 2;
+                 //this.y = (row * 5) - 20;
             }
                // else if (this.y = row * 1) {
                  //   this.x = colomn * 2;
                    // this.y = (row * 5) - 20;
                 //}
-            }
     }
     render(){ //why can't you just call on player.prototype.render??
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
