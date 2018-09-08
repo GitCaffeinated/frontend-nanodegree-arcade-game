@@ -52,20 +52,18 @@ Player.prototype.render = function() {
         this.horizontal = 101;
         this.vertical = 83;
         this.sprite = 'images/char-princess-girl.png';}
-    update(){ //not working
-              for (let enemy of allEnemies){
-                if (this.y ===enemy.y && (enemy.x + enemy.step) > this.x && enemy.x < this.x){
-                    this.x = colomn * 2;
-                    this.y = (row * 5) - 20;
-                }
-                //console.log ("collision");
-                 //this.x = colomn * 2;
-                 //this.y = (row * 5) - 20;
+    update(){ 
+         for (let enemy of allEnemies){ //bug- far left collision is not working
+            if (this.y ===enemy.y && (enemy.x + enemy.step) > this.x && enemy.x < this.x){
+                this.x = colomn * 2;
+                this.y = (row * 5) - 20;
+                } //water part not working 
             }
-               // else if (this.y = row * 1) {
-                 //   this.x = colomn * 2;
-                   // this.y = (row * 5) - 20;
-                //}
+           if (this.y === row * 0 - 20 ) {
+            console.log("win")
+              this.x = colomn * 2;
+              this.y = (row * 5) - 20;
+             }
     }
     render(){ //why can't you just call on player.prototype.render??
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
