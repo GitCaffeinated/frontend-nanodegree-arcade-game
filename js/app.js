@@ -54,7 +54,7 @@ Player.prototype.render = function() {
         this.sprite = 'images/char-princess-girl.png';}
     update(){ 
          for (let enemy of allEnemies){ //bug- far left collision is not working
-            if (this.y ===enemy.y && (enemy.x + enemy.step) > this.x && enemy.x < this.x){
+            if (this.y === enemy.y && (enemy.x + enemy.step) > this.x && enemy.x < this.x){
                 this.x = colomn * 2;
                 this.y = (row * 5) - 20;
                 } //water part not working 
