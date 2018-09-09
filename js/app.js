@@ -30,10 +30,8 @@ Enemy.prototype.update = function(dt) {
             this.x += this.speed * dt;
    }
     else {
-        this.x = 0;
+        this.x = -50;
     } 
-
-
 };
 
 // Draw the enemy on the screen, required method for game
@@ -84,9 +82,9 @@ Player.prototype.render = function() {
         };
  };
   const player = new Hero();
-  let enemy1 = new Enemy(0, (row * 1)- 20, Math.floor(Math.random() * 350) +50);
-  let enemy2 = new Enemy(0, (row * 2)- 20, Math.floor(Math.random() * 350) +50);
-  let enemy3 = new Enemy(0, (row * 3)- 20, Math.floor(Math.random() * 350) +50);
+  let enemy1 = new Enemy(-50, (row * 1)- 20, Math.floor(Math.random() * 350) +50);
+  let enemy2 = new Enemy(-50, (row * 2)- 20, Math.floor(Math.random() * 350) +50);
+  let enemy3 = new Enemy(-50, (row * 3)- 20, Math.floor(Math.random() * 350) +50);
   let allEnemies = [];
   allEnemies.push(enemy1);
   allEnemies.push(enemy2);
