@@ -5,8 +5,12 @@
 * [About this App](#AboutThisApp)
 * [How to Play](#HowToPlay)
 
+##AboutThisApp 
+This arcade game was created during the front end nanodegree through Udacity. Starter code was provided and I was required to get the board and character to interact with each other. I also needed to create and move the enemies. 
 
-## How to play:
+I utilized JavaScript in this activity. 
+
+##HowToPlay:
 Download or clone repository, extract the .zip file and open index.html in browser. 
 
 The objective is to get player to water using the arrow keys and avoiding the bugs. If your character touches one of the bugs you will start back at the beginning. 
