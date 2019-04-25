@@ -15,6 +15,6 @@ Download or clone repository, extract the .zip file and open index.html in brows
 
 The objective is to get player to water using the arrow keys and avoiding the bugs. If your character touches one of the bugs you will start back at the beginning. 
 
-When you get to the water your character will automatically go back to the beginning. 
+When you get to the water an alert will pop up saying you won and after clicking "OK" your character will automatically go back to the beginning. 
 
 <img src="images\arcadeGame.JPG">
