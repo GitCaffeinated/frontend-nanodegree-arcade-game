@@ -13,7 +13,7 @@ var Enemy = function(x, y, speed) {
 
 var Player = function() {
     this.sprite = 'image/char-princess-girl';
-}
+};
 // Update the enemy's position
 // Parameter: dt, a time delta between ticks
 
@@ -33,8 +33,8 @@ Enemy.prototype.render = function() {
 };
 
 Player.prototype.render = function() {
-    ctx
-} 
+    ctx;
+};
 
  class Hero { 
     constructor() {
@@ -51,16 +51,16 @@ Player.prototype.render = function() {
                 this.x = colomn * 2;
                 this.y = (row * 5) - 20;
                 }
-            }
+            };
            if (this.y === row * 0 - 20 ) {
               alert ("You Won!")
               this.x = colomn * 2;
               this.y = (row * 5) - 20;
-             }
+             };
     }
     render(){ //draw the hero
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
+    };
     handleInput(input) {
         if (this.x > 0 && input == 'left'){
             this.x -= this.horizontal;
