@@ -3,11 +3,7 @@ let row = 83;
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-        
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+    // Variables for what enemy looks, speed and positions are here.
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
@@ -18,14 +14,11 @@ var Enemy = function(x, y, speed) {
 var Player = function() {
     this.sprite = 'image/char-princess-girl';
 }
-// Update the enemy's position, required method for game
+// Update the enemy's position
 // Parameter: dt, a time delta between ticks
 
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt `parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-    //automated movement
+    // moving the enemy across the screen and start over when enemy is fully across
     if (this.x <= colomn * 5){
             this.x += this.speed * dt;
    }
@@ -34,7 +27,7 @@ Enemy.prototype.update = function(dt) {
     } 
 };
 
-// Draw the enemy on the screen, required method for game
+// Draw the enemy on the screen
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -43,30 +36,32 @@ Player.prototype.render = function() {
     ctx
 } 
 
- class Hero {  // 10.14 may help
+ class Hero { 
     constructor() {
+         // Variables for what hero looks, speed and positions are here.
         this.x = colomn * 2;
         this.y = (row * 5) - 20;
         this.horizontal = 101;
         this.vertical = 83;
         this.sprite = 'images/char-princess-girl.png';}
     update(){ 
-         for (let enemy of allEnemies){ //bug- far left collision is not working
+         for (let enemy of allEnemies){ 
+             //if enemy and hero are in the same space player goes to beginning
             if (this.y === enemy.y && (enemy.x + enemy.step) > this.x && enemy.x < this.x){
                 this.x = colomn * 2;
                 this.y = (row * 5) - 20;
-                } //water part not working 
+                }
             }
            if (this.y === row * 0 - 20 ) {
-            console.log("win")
+              alert ("You Won!")
               this.x = colomn * 2;
               this.y = (row * 5) - 20;
              }
     }
-    render(){ //why can't you just call on player.prototype.render??
+    render(){ //draw the hero
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-    handleInput(input) { //take keypress and move sprite
+    handleInput(input) {
         if (this.x > 0 && input == 'left'){
             this.x -= this.horizontal;
         }
@@ -89,10 +84,6 @@ Player.prototype.render = function() {
   allEnemies.push(enemy1);
   allEnemies.push(enemy2);
   allEnemies.push(enemy3);
- // This class requires an update()
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
 
 // This listens for key presses sends keys to Player.handleInput() method
 document.addEventListener('keyup', function(e) {
